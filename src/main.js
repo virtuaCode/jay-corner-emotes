@@ -5,23 +5,23 @@ let maximum = 0;
 function addEmoteElement(code, id, sum) {
     let temp = document.getElementsByTagName("template")[0];
     let clone = temp.content.cloneNode(true);
-    let list = document.body.querySelector(".grid")
+    let list = document.body.querySelector(".grid");
     let img = clone.querySelector("img");
     let codeElem = clone.querySelector(".code");
     let countElem = clone.querySelector(".sum");
     let progressElem = clone.querySelector(".progress");
 
-    img.src = "https://static-cdn.jtvnw.net/emoticons/v2/" + id + "/default/light/2.0"
+    img.src = "https://static-cdn.jtvnw.net/emoticons/v2/" + id + "/default/light/2.0";
     codeElem.innerText = code;
     countElem.innerText = "" + sum;
-    progressElem.style.width =  (sum / maximum) * 100 + "%";
+    progressElem.style.width = (sum / maximum) * 100 + "%";
 
     list.appendChild(clone);
 }
 
 function setHeader(min, max) {
     let header = document.body.querySelector("header");
-    header.innerHTML = "<h1>Jay_Corner Emotes Stats</h1> Zwischen " + (new Date(min)).toDateString() + " und " + (new Date(max)).toDateString() ;
+    header.innerHTML = "<h1>Jay_Corner Emotes Stats</h1> Zwischen " + (new Date(min)).toDateString() + " und " + (new Date(max)).toDateString();
 }
 
 function showStats(data) {
@@ -46,7 +46,7 @@ function showStats(data) {
             sum += count;
         }
 
-        items.push({code: emote.code, id: emote.id, sum: sum});
+        items.push({ code: emote.code, id: emote.id, sum: sum });
     }
 
     items.sort((a, b) => b.sum - a.sum)
@@ -61,6 +61,6 @@ function showStats(data) {
 }
 
 fetch("graph.json")
-.then(res => res.json())
-.then(showStats)
-.catch(err => console.error(err))
+    .then(res => res.json())
+    .then(showStats)
+    .catch(err => console.error(err))
