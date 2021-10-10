@@ -1,0 +1,63 @@
+
+
+html, body {
+    font-family: 'Nunito', sans-serif;
+    background-color: white;
+}
+
+header {
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+header h1 {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-template-rows: repeat(8, 1fr);
+    grid-auto-flow: column;
+}
+
+.grid .item {
+    border-radius: 10px;
+    border: solid 1px black;
+    overflow: hidden;
+}
+
+.item {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+.item .progress {
+    position: absolute;
+    background-color: gold;
+    left:0;
+    top: 0;
+    bottom: 0;
+
+}
+
+.item .code {
+    flex-grow: 1;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.item .sum {
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.item img {
+    float: right;
+    margin-right: 1rem;
+    z-index: 1;
+}
